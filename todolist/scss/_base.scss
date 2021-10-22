@@ -4,7 +4,6 @@ $color-gray: rgb(97, 97, 97);
 $color-white: white;
 $color-light-gray: rgb(220, 220, 220);
 
-
 $font-text: "Open Sans", sans-serif;
 $font-title: "Josefin Sans", sans-serif;
 
@@ -27,7 +26,7 @@ html {
     main {
       .todos {
         display: grid;
-        grid-template-columns: repeat(auto-fit, 50%);
+        grid-template-columns: repeat(2, 50%);
       }
     }
     
@@ -37,8 +36,9 @@ html {
 body {
   background-color: $color-primary;
   display: grid;
-  max-height: 100vh;
+  height: 100vh;
   grid-template-columns:
-    minmax(2rem, 1fr) repeat(12, minmax(min-content, 6.5rem))
-    minmax(2rem, 1fr);
+    minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem))
+    minmax(0, 1fr);
+  grid-template-rows: minmax(min-content,10rem) 1fr;
 }
