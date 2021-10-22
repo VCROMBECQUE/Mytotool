@@ -1,0 +1,50 @@
+%heading {
+    font-family: $font-title;
+    font-weight: 400;
+  }
+
+%texting{
+  font-family: $font-text;
+  font-weight: 400;
+}
+
+.heading-1 {
+  @extend %heading;
+  color: $color-white;
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+
+.heading-3 {
+  @extend %heading;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.texting-1{
+  @extend %texting;
+  font-size: 1.6rem;
+}
+
+.texting-2{
+  @extend %texting;
+  font-size: 1.6rem;
+  color: $color-white;
+}
+
+.texting-3{
+  @extend %texting;
+  font-size: 1.4rem;
+  color: $color-black;
+}
+
+.iconuser-1{
+  font-size: 3rem;
+  color: $color-white;
+}

@@ -1,0 +1,29 @@
+header {
+  grid-column: 1/-1;
+  max-height: 10rem;
+  background-color: black;
+  display: grid;
+  grid-template-columns:
+    [grid-start] minmax(2rem, 1fr) [center-start] repeat(
+      12,
+      [col-start] minmax(min-content, 6.5rem) [col-end]
+    )
+    [center-end] minmax(2rem, 1fr) [grid-end];
+  align-items: center;
+
+  h1 {
+    grid-column: center-start / span 9;
+    padding: 2rem;
+  }
+
+  .currentuser{
+    grid-column: span 2 / col-end 11;
+    text-align: end;
+  }
+
+  i {
+    grid-column: span 1 / center-end;
+    cursor: pointer;
+    padding: 2rem;
+  }
+}

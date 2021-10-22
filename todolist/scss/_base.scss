@@ -1,0 +1,32 @@
+$color-primary: #FBED96;
+$color-black: black;
+$color-gray: rgb(97, 97, 97);
+$color-white: white;
+$color-light-gray: rgb(220, 220, 220);
+
+
+$font-text: "Open Sans", sans-serif;
+$font-title: "Josefin Sans", sans-serif;
+
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+body {
+  background-color: $color-primary;
+  display: grid;
+  max-height: 100vh;
+  grid-template-columns:
+    minmax(2rem, 1fr) repeat(12, minmax(min-content, 6.5rem))
+    minmax(2rem, 1fr);
+}
