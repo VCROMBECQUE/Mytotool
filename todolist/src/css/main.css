@@ -48,13 +48,20 @@ table {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 50%;
   box-sizing: border-box;
 }
 
-@media only screen and (max-width: 75em) {
+@media only screen and (min-width: 75em) {
   html {
-    font-size: 50%;
+    font-size: 62.5%;
+  }
+  html body {
+    grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
+  }
+  html main .todos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50%);
   }
 }
 
@@ -154,6 +161,7 @@ header i {
 }
 
 main {
+  max-width: 100%;
   grid-column: 2/-2;
   display: grid;
   justify-items: center;
@@ -199,7 +207,8 @@ main .addtask_input {
 
 main .addtask_btn {
   width: 100%;
-  padding: 0.5rem 1rem;
+  max-width: min-content;
+  padding: 0.5rem 2rem;
   background-color: black;
   border-radius: 2.5rem;
   cursor: pointer;

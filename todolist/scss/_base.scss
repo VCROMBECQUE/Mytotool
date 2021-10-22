@@ -14,11 +14,23 @@ $bp-medium: 50em; // 800px;
 $bp-small: 37.5em; // 600px;
 
 html {
-  font-size: 62.5%;
+  font-size: 50%;
   box-sizing: border-box;
 
-  @media only screen and (max-width: $bp-largest) {
-    font-size: 50%;
+  @media only screen and (min-width: $bp-largest) {
+    font-size: 62.5%;
+    body{
+      grid-template-columns:
+      minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem))
+      minmax(2rem, 1fr);
+    }
+    main {
+      .todos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 50%);
+      }
+    }
+    
   }
 }
 

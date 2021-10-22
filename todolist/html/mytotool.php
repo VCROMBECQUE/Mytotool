@@ -44,8 +44,6 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
             <h2 class="heading-2">Bienvenue sur votre Mytotool personnelle</h2>
         </div>
 
-
-
         <section class="todos">
             <?php foreach ($todos as $key => $todo) { ?>
                 <div class="todo">

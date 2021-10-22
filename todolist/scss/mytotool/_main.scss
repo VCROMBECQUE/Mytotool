@@ -1,4 +1,5 @@
 main {
+  max-width: 100%;
   grid-column: 2/-2;
   display: grid;
   justify-items: center;
@@ -31,6 +32,7 @@ main {
     align-items: center;
 
     width: 100%;
+    
     padding: 1.5rem 4rem;
 
     &_pres {
@@ -47,7 +49,8 @@ main {
 
     &_btn {
       width: 100%;
-      padding: 0.5rem 1rem;
+      max-width: min-content;
+      padding: 0.5rem 2rem;
       background-color: $color-black;
       border-radius: 2.5rem;
       cursor: pointer;
