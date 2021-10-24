@@ -21,41 +21,6 @@ main {
     text-align: center;
   }
 
-  .addtask {
-    background-color: $color-white;
-    border-radius: 2.5rem;
-
-    display: grid;
-    grid-template-columns: 70% 30%;
-    justify-items: center;
-    align-items: center;
-
-    width: 80%;
-
-    margin-top: 1rem;
-    padding: 1.5rem 4rem;
-
-    &_pres {
-      grid-column: 1/-1;
-      padding: 1rem 1rem 2rem 1rem;
-    }
-
-    &_input {
-      width: 100%;
-      padding: 0.5rem 1rem;
-      border-radius: 2.5rem;
-      margin-right: 0.5rem;
-    }
-
-    &_btn {
-      width: 100%;
-      max-width: min-content;
-      padding: 0.5rem 2rem;
-      background-color: $color-black;
-      border-radius: 2.5rem;
-      cursor: pointer;
-    }
-  }
   .todos {
     width: 95%;
     margin: 1rem 0;
@@ -110,6 +75,38 @@ main {
         font-size: 2rem;
         cursor: pointer;
       }
+    }
+  }
+
+  .addtask {
+    background-color: $color-white;
+    border-radius: 2.5rem;
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-items: center;
+    align-items: center;
+
+    width: 90%;
+
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+
+
+    &_input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 2.5rem;
+      margin-right: 1.5rem;
+    }
+
+    &_btn {
+      width: 100%;
+      max-width: 15rem;
+      padding: 1rem 1.5rem;
+      background-color: $color-black;
+      border-radius: 2.5rem;
+      cursor: pointer;
     }
   }
 }

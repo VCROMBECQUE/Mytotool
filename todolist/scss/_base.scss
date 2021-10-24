@@ -16,6 +16,10 @@ html {
   font-size: 50%;
   box-sizing: border-box;
 
+  @media screen and (max-width: $bp-small) {
+    font-size: 45%;
+  }
+
   @media only screen and (min-width: $bp-largest) {
     font-size: 62.5%;
     body{
@@ -28,8 +32,13 @@ html {
         display: grid;
         grid-template-columns: repeat(2, 50%);
       }
+      .addtask {
+        &_input {
+          margin-right: 4rem;
+        }
+      }
     }
-    
+
   }
 }
 

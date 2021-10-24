@@ -3,6 +3,7 @@
   border-radius: 2.5rem;
   padding: 4rem 2rem;
   margin: 4rem 2rem;
+  height:min-content;
 
   &_form {
     width: 100%;
@@ -12,19 +13,25 @@
     &_mail {
       border-radius: 2.5rem;
       width: 80%;
-      padding: 0.5rem 1rem;
+      max-width: 30rem;
+      padding: 1rem 1.5rem;
       margin: 1rem;
+
     }
     &_mdp {
       border-radius: 2.5rem;
       width: 80%;
-      padding: 0.5rem 1rem;
+      max-width: 30rem;
+      padding: 1rem 1.5rem;
       margin: 1rem;
+
     }
     &_forgot {
       width: 80%;
+      max-width: 30rem;
       text-align: right;
       margin-bottom: 4rem;
+
     }
     &_loginbtn {
       max-width: 16rem;
@@ -32,6 +39,7 @@
       background-color: $color-black;
       border-radius: 2.5rem;
       cursor: pointer;
+
     }
   }
 }

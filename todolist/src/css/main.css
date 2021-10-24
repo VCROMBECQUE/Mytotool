@@ -52,6 +52,12 @@ html {
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 37.5em) {
+  html {
+    font-size: 45%;
+  }
+}
+
 @media only screen and (min-width: 75em) {
   html {
     font-size: 62.5%;
@@ -62,6 +68,9 @@ html {
   html main .todos {
     display: grid;
     grid-template-columns: repeat(2, 50%);
+  }
+  html main .addtask_input {
+    margin-right: 4rem;
   }
 }
 
@@ -76,11 +85,13 @@ body {
 .heading-1, .heading-2, .heading-3 {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .texting-1, .texting-2, .texting-3 {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .heading-1 {
@@ -101,6 +112,7 @@ body {
 
 .texting-1 {
   font-size: 1.6rem;
+  line-height: 2rem;
 }
 
 .texting-2 {
@@ -109,7 +121,7 @@ body {
 }
 
 .texting-3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: black;
 }
 
@@ -124,11 +136,11 @@ body {
 
 ::-webkit-scrollbar {
   width: 0.8rem;
-  background-color: #616161;
+  background-color: gainsboro;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: gainsboro;
+  background: #616161;
 }
 
 .scroller {
@@ -180,39 +192,6 @@ main .welcome {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-main .addtask {
-  background-color: white;
-  border-radius: 2.5rem;
-  display: grid;
-  grid-template-columns: 70% 30%;
-  justify-items: center;
-  align-items: center;
-  width: 80%;
-  margin-top: 1rem;
-  padding: 1.5rem 4rem;
-}
-
-main .addtask_pres {
-  grid-column: 1/-1;
-  padding: 1rem 1rem 2rem 1rem;
-}
-
-main .addtask_input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border-radius: 2.5rem;
-  margin-right: 0.5rem;
-}
-
-main .addtask_btn {
-  width: 100%;
-  max-width: min-content;
-  padding: 0.5rem 2rem;
-  background-color: black;
-  border-radius: 2.5rem;
-  cursor: pointer;
 }
 
 main .todos {
@@ -272,11 +251,40 @@ main .todos .todo_delete {
   cursor: pointer;
 }
 
+main .addtask {
+  background-color: white;
+  border-radius: 2.5rem;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  justify-items: center;
+  align-items: center;
+  width: 90%;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+}
+
+main .addtask_input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 2.5rem;
+  margin-right: 1.5rem;
+}
+
+main .addtask_btn {
+  width: 100%;
+  max-width: 15rem;
+  padding: 1rem 1.5rem;
+  background-color: black;
+  border-radius: 2.5rem;
+  cursor: pointer;
+}
+
 .connexion {
   background-color: white;
   border-radius: 2.5rem;
   padding: 4rem 2rem;
   margin: 4rem 2rem;
+  height: min-content;
 }
 
 .connexion_form {
@@ -288,19 +296,22 @@ main .todos .todo_delete {
 .connexion_form_mail {
   border-radius: 2.5rem;
   width: 80%;
-  padding: 0.5rem 1rem;
+  max-width: 30rem;
+  padding: 1rem 1.5rem;
   margin: 1rem;
 }
 
 .connexion_form_mdp {
   border-radius: 2.5rem;
   width: 80%;
-  padding: 0.5rem 1rem;
+  max-width: 30rem;
+  padding: 1rem 1.5rem;
   margin: 1rem;
 }
 
 .connexion_form_forgot {
   width: 80%;
+  max-width: 30rem;
   text-align: right;
   margin-bottom: 4rem;
 }
@@ -311,4 +322,21 @@ main .todos .todo_delete {
   background-color: black;
   border-radius: 2.5rem;
   cursor: pointer;
+}
+
+.accueil {
+  background-color: white;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  margin: 4rem 2rem;
+  height: min-content;
+}
+
+.accueil h2 {
+  padding: 4rem;
+  text-align: center;
+}
+
+.accueil p {
+  padding: 2rem;
 }
