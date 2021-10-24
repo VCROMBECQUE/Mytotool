@@ -82,15 +82,14 @@ main {
     background-color: $color-white;
     border-radius: 2.5rem;
 
-    display: grid;
-    grid-template-columns: 70% 30%;
-    justify-items: center;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
 
-    width: 90%;
+    width: 100%;
 
     margin-top: 1rem;
-    padding: 1rem 3rem;
+    padding: 1rem 4rem;
 
 
     &_input {

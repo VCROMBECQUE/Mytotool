@@ -56,6 +56,14 @@ html {
   html {
     font-size: 45%;
   }
+  html main .addtask {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  html main .addtask_input {
+    margin-bottom: 1rem;
+    margin-right: 0rem;
+  }
 }
 
 @media only screen and (min-width: 75em) {
@@ -75,7 +83,7 @@ html {
 }
 
 body {
-  background-color: #FBED96;
+  background-color: #fbed96;
   display: grid;
   height: 100vh;
   grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
@@ -254,13 +262,12 @@ main .todos .todo_delete {
 main .addtask {
   background-color: white;
   border-radius: 2.5rem;
-  display: grid;
-  grid-template-columns: 70% 30%;
-  justify-items: center;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  width: 90%;
+  width: 100%;
   margin-top: 1rem;
-  padding: 1rem 3rem;
+  padding: 1rem 4rem;
 }
 
 main .addtask_input {
