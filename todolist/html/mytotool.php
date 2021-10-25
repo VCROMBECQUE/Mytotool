@@ -12,7 +12,7 @@ $charset = 'utf8';
 $dsn = "mysql:host=$servername;dbname=$database;charset=$charset";
 $conn = new PDO($dsn, $username, $password);
 
-$sql = "SELECT todo.task, todo.checked FROM todo JOIN users ON users.id = todo.user_id WHERE users.user LIKE :name ORDER BY todo.id ASC";
+$sql = "SELECT todo.id, todo.task, todo.checked FROM todo JOIN users ON users.id = todo.user_id WHERE users.user LIKE :name ORDER BY todo.id ASC";
 
 $query = $conn->prepare($sql);
 $query->bindValue(":name", $name, PDO::PARAM_STR);
@@ -46,12 +46,12 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
             <h2 class="heading-2">Bienvenue sur votre Mytotool personnelle</h2>
         </div>
 
-        <section class="todos">
-            <?php foreach ($todos as $key => $todo) { ?>
-                <div class="todo">
+        <section id="todos" class="todos scroller">
+            <?php foreach ($todos as $todo) { ?>
+                <div class="todo" id=<?="todo_".$todo["id"]?>>
                     <input type="checkbox" <?= $todo["checked"] ? "checked" : "" ?> class="todo_check">
                     <p class="todo_text texting-1"><?= $todo["task"] ?></p>
-                    <i class="fas fa-times todo_delete"></i>
+                    <i class="fas fa-times todo_delete" id=<?="delete_todo_".$todo["id"]?> onclick="delete_todo()"></i>
                 </div>
             <?php } ?>
         </section>
@@ -62,9 +62,7 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
         </div>
     </main>
 
-    <footer>
-        <p></p>
-    </footer>
+    <script src="../js/mytotool.js"></script>
 </body>
 
 </html>

@@ -152,7 +152,7 @@ body {
 }
 
 .scroller {
-  scrollbar-color: gainsboro #616161;
+  scrollbar-color: #616161 gainsboro;
   scrollbar-width: thin;
 }
 
@@ -207,7 +207,7 @@ main .todos {
   background-color: white;
   border-radius: 2.5rem;
   padding: 1rem 0;
-  max-height: 60vh;
+  height: 60vh;
   overflow-y: auto;
 }
 
@@ -220,7 +220,7 @@ main .todos .todo {
   align-items: center;
   justify-items: center;
   width: 90%;
-  max-height: 20rem;
+  max-height: 10rem;
   padding: 1.5rem;
   margin: 1rem auto;
 }
@@ -265,8 +265,9 @@ main .addtask {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  height: min-content;
   margin-top: 1rem;
-  padding: 1rem 4rem;
+  padding: 3rem 4rem;
 }
 
 main .addtask_input {
