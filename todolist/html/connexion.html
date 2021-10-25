@@ -13,11 +13,12 @@
 
 <body>
     <header>
-        <h1 class="heading-1">MYTOTOOL</h1>
-        <p class="currentuser texting-2"><?= $name ?></p><i class="fas fa-user iconuser-1"></i>
+        <h1><a class="heading-1" href="./index.html">MYTOTOOL</a></h1>
+        <p class="currentuser"><a class="texting-2" href="./connexion.html">Connexion</a></p><a
+            href="./connexion.html"><i class="fas fa-user iconuser-1"></i></a>
     </header>
     <main class="connexion">
-        <form class="connexion_form" action="" method="get">
+        <form class="connexion_form" action="./mytotool.php">
             <input class="connexion_form_mail" type="text" placeholder="Nom d'utilisateur ou E-mail" required>
             <input class="connexion_form_mdp" type="text" placeholder="Mot de passe" required>
             <a class="connexion_form_forgot texting-3" href="">Mot de passe oublié ?</a>

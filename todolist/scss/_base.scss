@@ -1,4 +1,4 @@
-$color-primary: #FBED96;
+$color-primary: #fbed96;
 $color-black: black;
 $color-gray: rgb(97, 97, 97);
 $color-white: white;
@@ -8,28 +8,44 @@ $font-text: "Open Sans", sans-serif;
 $font-title: "Josefin Sans", sans-serif;
 
 $bp-largest: 75em; // 1200px
-$bp-large: 62.5em; // 1000px
-$bp-medium: 50em; // 800px;
 $bp-small: 37.5em; // 600px;
 
 html {
   font-size: 50%;
   box-sizing: border-box;
 
+  @media screen and (max-width: $bp-small) {
+    font-size: 45%;
+    main {
+      .addtask {
+        flex-direction: column;
+        padding: 2rem;
+        &_input {
+          margin-bottom: 1rem;
+          margin-right: 0rem;
+        }
+      }
+    }
+  }
+
   @media only screen and (min-width: $bp-largest) {
     font-size: 62.5%;
-    body{
+    body {
       grid-template-columns:
-      minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem))
-      minmax(2rem, 1fr);
+        minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem))
+        minmax(2rem, 1fr);
     }
     main {
       .todos {
         display: grid;
         grid-template-columns: repeat(2, 50%);
       }
+      .addtask {
+        &_input {
+          margin-right: 4rem;
+        }
+      }
     }
-    
   }
 }
 
@@ -40,5 +56,5 @@ body {
   grid-template-columns:
     minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem))
     minmax(0, 1fr);
-  grid-template-rows: minmax(min-content,10rem) 1fr;
+  grid-template-rows: minmax(min-content, 10rem) 1fr;
 }

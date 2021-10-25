@@ -34,9 +34,11 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+
     <header>
-        <h1 class="heading-1">MYTOTOOL</h1>
-        <p class="currentuser texting-2"><?= $name ?></p><i class="fas fa-user iconuser-1"></i>
+        <h1><a class="heading-1" href="./index.html">MYTOTOOL</a></h1>
+        <p class="currentuser"><a class="texting-2" href="./mytotool.html"><?= $name ?></a></p><a href="./connexion.html"><i
+                class="fas fa-user iconuser-1"></i></a>
     </header>
 
     <main>
