@@ -1,6 +1,5 @@
 <?php 
 $input = json_decode(file_get_contents('php://input'), true);
-var_dump($input);
 $servername = 'localhost';
 $username = 'root';
 $password = '';
