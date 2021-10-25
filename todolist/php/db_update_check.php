@@ -15,5 +15,4 @@ var_dump($sql);
 
 $query = $conn->prepare($sql);
 $query->execute();
-
 ?>
