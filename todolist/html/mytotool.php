@@ -49,7 +49,7 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
         <section id="todos" class="todos scroller">
             <?php foreach ($todos as $todo) { ?>
                 <div class="todo" id=<?="todo_".$todo["id"]?>>
-                    <input type="checkbox" <?= $todo["checked"] ? "checked" : "" ?> class="todo_check">
+                    <input type="checkbox" <?= $todo["checked"] ? "checked" : "" ?> class="todo_check" id=<?="check_todo_".$todo["id"]?> onclick="update_check()">
                     <p class="todo_text texting-1"><?= $todo["task"] ?></p>
                     <i class="fas fa-times todo_delete" id=<?="delete_todo_".$todo["id"]?> onclick="delete_todo()"></i>
                 </div>

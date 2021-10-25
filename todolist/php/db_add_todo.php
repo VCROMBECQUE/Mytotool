@@ -42,9 +42,6 @@ $sql1 = $sql1 . "', '".$input['tache']."', '0', '".$user_id['id']."')";
 $query1 = $conn->prepare($sql1);
 $query1->execute();
 
-
-
-
 $todo = ["id"=>$db_id_available,"task"=>$input['tache'],"checked"=>""];
 header('Content-Type: application/json');
 echo json_encode($todo);

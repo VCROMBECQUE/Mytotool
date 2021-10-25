@@ -40,10 +40,24 @@ function add_todo() {
         <p class="todo_text texting-1">${data.task}</p>
         <i class="fas fa-times todo_delete" id="delete_todo_${data.id}" onclick="delete_todo()"></i>
     </div>`;
-            console.log(new_todo);
+          console.log(new_todo);
           todos.innerHTML += new_todo;
         });
       })
       .catch((error) => console.log("erreur fetch", error));
   }
+}
+
+function update_check() {
+  let elem_id = window.event.target.id;
+  let elem = elem_id.split("_");
+
+  const options = {
+    method: "POST",
+    body: elem[2],
+  };
+
+  fetch("../php/db_update_check.php", options).catch((error) =>
+    console.log("erreur fetch", error)
+  );
 }

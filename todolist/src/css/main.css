@@ -83,7 +83,7 @@ html {
 }
 
 body {
-  background-color: #fbed96;
+  background-color: gainsboro;
   display: grid;
   height: 100vh;
   grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
