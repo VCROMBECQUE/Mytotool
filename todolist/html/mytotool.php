@@ -37,7 +37,7 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
 
     <header>
         <h1><a class="heading-1" href="./index.html">MYTOTOOL</a></h1>
-        <p class="currentuser"><a class="texting-2" href="./mytotool.html"><?= $name ?></a></p><a href="./connexion.html"><i
+        <p class="currentuser"><a class="texting-2" href="./mytotool.html" id="user"><?= $name ?></a></p><a href="./connexion.html"><i
                 class="fas fa-user iconuser-1"></i></a>
     </header>
 
@@ -57,8 +57,8 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
         </section>
 
         <div class="addtask">
-            <input class="addtask_input" type="text" placeholder="Nouvelle tâche">
-            <button class="addtask_btn texting-2" type="submit">Ajouter</button>
+            <input class="addtask_input" type="text" placeholder="Nouvelle tâche" id="tache">
+            <button class="addtask_btn texting-2" type="button" id="add_new_todo" onclick="add_todo()">Ajouter</button>
         </div>
     </main>
 
