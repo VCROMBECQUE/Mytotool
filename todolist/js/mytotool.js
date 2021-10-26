@@ -36,11 +36,10 @@ function add_todo() {
           new_todo = `<div class="todo" id="todo_${data.id}">
             <input type="checkbox" `;
           data.checked ? (new_todo += `checked`) : (new_todo += ``);
-          new_todo += ` class="todo_check">
+          new_todo += ` class="todo_check" id="check_todo_${data.id}" onclick="update_check()">
         <p class="todo_text texting-1">${data.task}</p>
         <i class="fas fa-times todo_delete" id="delete_todo_${data.id}" onclick="delete_todo()"></i>
     </div>`;
-          console.log(new_todo);
           todos.innerHTML += new_todo;
         });
       })

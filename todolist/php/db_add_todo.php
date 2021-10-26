@@ -30,7 +30,7 @@ foreach ($db_ids as $key => $db_id) {
 }
 $sql1 = $sql1 . $db_id_available;
 
-$sql3 = "SELECT todo.id FROM todo JOIN users ON users.id = todo.user_id WHERE users.user LIKE '".$input['user']."' ORDER BY todo.id ASC LIMIT 1";
+$sql3 = "SELECT users.id FROM users WHERE users.user LIKE '".$input['user']."'";
 
 $query3 = $conn->prepare($sql3);
 $query3->execute();

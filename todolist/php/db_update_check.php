@@ -10,7 +10,8 @@ $dsn = "mysql:host=$servername;dbname=$database;charset=$charset";
 $conn = new PDO($dsn, $username, $password);
 
 $sql = "UPDATE todo SET todo.checked = !todo.checked WHERE todo.id = '$input'";
-
+var_dump($input);
+var_dump($sql);
 $query = $conn->prepare($sql);
 $query->execute();
 ?>
