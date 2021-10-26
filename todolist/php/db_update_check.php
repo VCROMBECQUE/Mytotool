@@ -9,7 +9,15 @@ $charset = 'utf8';
 $dsn = "mysql:host=$servername;dbname=$database;charset=$charset";
 $conn = new PDO($dsn, $username, $password);
 
+$conn->beginTransaction();
+
 $sql = "UPDATE todo SET todo.checked = !todo.checked WHERE todo.id = '$input'";
 $query = $conn->prepare($sql);
-$query->execute();
+
+if($query->execute()){
+    $conn->commit();
+}
+else{
+    $conn->rollBack();
+}
 ?>

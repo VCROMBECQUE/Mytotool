@@ -10,11 +10,19 @@ $charset = 'utf8';
 $dsn = "mysql:host=$servername;dbname=$database;charset=$charset";
 $conn = new PDO($dsn, $username, $password);
 
+$conn->beginTransaction();
+
 $sql = "SELECT todo.id, todo.task, todo.checked FROM todo JOIN users ON users.id = todo.user_id WHERE users.user LIKE :name ORDER BY todo.id ASC";
 
 $query = $conn->prepare($sql);
 $query->bindValue(":name", $input, PDO::PARAM_STR);
-$query->execute();
+
+if($query->execute()){
+    $conn->commit();
+}
+else{
+    $conn->rollBack();
+}
 
 $todos = $query->fetchALL(PDO::FETCH_ASSOC);
 header('Content-Type: application/json');
