@@ -1,7 +1,7 @@
 var todos = document.getElementById("todos");
 var add_new_todo = document.getElementById("add_new_todo");
 
-function delete_todo() {
+async function delete_todo() {
   let elem_id = window.event.target.id;
   let elem = elem_id.split("_");
   let todo_del = document.getElementById("todo_" + elem[2]);
@@ -12,12 +12,14 @@ function delete_todo() {
     body: elem[2],
   };
 
-  fetch("../php/db_delete_todo.php", options).catch((error) =>
+  await fetch("../php/db_delete_todo.php", options).catch((error) =>
     console.log("erreur fetch", error)
   );
+
+  update_todos();
 }
 
-function add_todo() {
+async function add_todo() {
   let tache = document.getElementById("tache").value;
   let user = document.getElementById("user").innerHTML;
   if (tache) {
@@ -30,7 +32,7 @@ function add_todo() {
       body: JSON.stringify(data),
     };
 
-    fetch("../php/db_add_todo.php", options)
+    await fetch("../php/db_add_todo.php", options)
       .then((response) => {
         response.json().then((data) => {
           new_todo = `<div class="todo" id="todo_${data.id}">
@@ -45,9 +47,11 @@ function add_todo() {
       })
       .catch((error) => console.log("erreur fetch", error));
   }
+
+  update_todos();
 }
 
-function update_check() {
+async function update_check() {
   let elem_id = window.event.target.id;
   let elem = elem_id.split("_");
 
@@ -56,7 +60,44 @@ function update_check() {
     body: elem[2],
   };
 
-  fetch("../php/db_update_check.php", options).catch((error) =>
+  await fetch("../php/db_update_check.php", options).catch((error) =>
     console.log("erreur fetch", error)
   );
+
+  update_todos();
+}
+
+function update_todos() {
+  let user = document.getElementById("user").innerHTML;
+  const options = {
+    method: "POST",
+    body: JSON.stringify(user),
+  };
+  todos.innerHTML = "";
+  fetch("../php/db_update_todos.php", options)
+    .then((response) => {
+      response.json().then((data) => {
+        let new_todos = "";
+        data.forEach((current_task) => {
+          new_todos +=
+            `<div class="todo" draggable="true" id="todo_` +
+            current_task.id +
+            `"><input type="checkbox" `;
+          current_task.checked == 1 ? (new_todos += `checked`) : (new_todos += ``);
+
+          new_todos +=
+            ` class="todo_check" id="check_todo_` +
+            current_task.id +
+            `" onclick="update_check()"><p class="todo_text texting-1">` +
+            current_task.task +
+            `</p>
+          <i class="fas fa-times todo_delete" id="delete_todo_` +
+            current_task.id +
+            `" onclick="delete_todo()"></i>
+      </div>`;
+        });
+        todos.innerHTML = new_todos;
+      });
+    })
+    .catch((error) => console.log("erreur fetch", error));
 }
