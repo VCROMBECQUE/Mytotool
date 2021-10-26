@@ -1,0 +1,43 @@
+.inscription {
+    background-color: $color-white;
+    border-radius: 2.5rem;
+    padding: 4rem 2rem;
+    margin: 4rem 2rem;
+    height:min-content;
+  
+    &_form {
+      width: 100%;
+      display: grid;
+      justify-items: center;
+      
+      &_mail {
+        border-radius: 2.5rem;
+        width: 80%;
+        max-width: 30rem;
+        padding: 1rem 1.5rem;
+        margin: 1rem;
+  
+      }
+      &_mdp {
+        border-radius: 2.5rem;
+        width: 80%;
+        max-width: 30rem;
+        padding: 1rem 1.5rem;
+        margin: 1rem;
+      }
+
+      &_loginbtn {
+        margin-top: 1rem;
+        max-width: 16rem;
+        padding: 1rem 4rem;
+        background-color: $color-black;
+        border-radius: 2.5rem;
+        cursor: pointer;
+  
+      }
+    }
+    &_subscribe{
+      padding-top: 2rem;
+    }
+  }
+  

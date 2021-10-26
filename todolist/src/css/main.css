@@ -286,6 +286,23 @@ main .addtask_btn {
   cursor: pointer;
 }
 
+.accueil {
+  background-color: white;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  margin: 4rem 2rem;
+  height: min-content;
+}
+
+.accueil h2 {
+  padding: 4rem;
+  text-align: center;
+}
+
+.accueil p {
+  padding: 2rem;
+}
+
 .connexion {
   background-color: white;
   border-radius: 2.5rem;
@@ -331,19 +348,49 @@ main .addtask_btn {
   cursor: pointer;
 }
 
-.accueil {
+.connexion_createaccount {
+  padding-top: 2rem;
+}
+
+.inscription {
   background-color: white;
   border-radius: 2.5rem;
-  padding: 2rem;
+  padding: 4rem 2rem;
   margin: 4rem 2rem;
   height: min-content;
 }
 
-.accueil h2 {
-  padding: 4rem;
-  text-align: center;
+.inscription_form {
+  width: 100%;
+  display: grid;
+  justify-items: center;
 }
 
-.accueil p {
-  padding: 2rem;
+.inscription_form_mail {
+  border-radius: 2.5rem;
+  width: 80%;
+  max-width: 30rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
+
+.inscription_form_mdp {
+  border-radius: 2.5rem;
+  width: 80%;
+  max-width: 30rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
+
+.inscription_form_loginbtn {
+  margin-top: 1rem;
+  max-width: 16rem;
+  padding: 1rem 4rem;
+  background-color: black;
+  border-radius: 2.5rem;
+  cursor: pointer;
+}
+
+.inscription_subscribe {
+  padding-top: 2rem;
 }

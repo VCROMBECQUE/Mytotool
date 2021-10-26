@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="../dist/css/main.min.css">
-    <title>MYTOTOOL connexion</title>
+    <title>MYTOTOOL créer un compte</title>
 </head>
 
 <body>
@@ -17,14 +17,14 @@
         <p class="currentuser"><a class="texting-2" href="./connexion.html">Connexion</a></p><a
             href="./connexion.html"><i class="fas fa-user iconuser-1"></i></a>
     </header>
-    <main class="connexion">
-        <form class="connexion_form" action="../php/connexion.php" method="POST">
-            <input class="connexion_form_mail" name="identifiant" type="text" placeholder="Nom d'utilisateur ou E-mail" required>
-            <input class="connexion_form_mdp" name="mdp" type="password" placeholder="Mot de passe" required>
-            <a class="connexion_form_forgot texting-3" href="">Mot de passe oublié ?</a>
-            <button type="submit" class="connexion_form_loginbtn texting-2">Connexion</button>
+    <main class="inscription">
+        <form class="inscription_form" action="../php/inscription.php" method="POST">
+            <input class="inscription_form_mail" name="user" type="text" placeholder="Nom d'utilisateur" required>
+            <input class="inscription_form_mail" name="email" type="email" placeholder="E-mail" required>
+            <input class="inscription_form_mdp" name="password" type="password" placeholder="Mot de passe" required>
+            <button type="submit" class="inscription_form_loginbtn texting-2">S'inscrire</button>
         </form>
-        <a class="connexion_createaccount texting-3" href="./inscription.html">Pas encore de compte ?</a>
+        <a class="inscription_subscribe texting-3" href="./connexion.html">Vous avez déjà un compte ?</a>
     </main>
 </body>
 
