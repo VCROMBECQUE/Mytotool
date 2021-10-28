@@ -1,9 +1,7 @@
 <?php
 $input = json_decode(file_get_contents('php://input'), true);
-var_dump($input);
 
 include_once "./db.php";
-
 
 $conn->beginTransaction();
 $sql_get_user_id = "SELECT users.id FROM users WHERE users.user LIKE :user";
@@ -44,6 +42,6 @@ if ($query_get_last_todo_id->execute()) {
 }
 
 $todo = ["id" => $db_todo_id['id'], "task" => $input['tache'], "checked" => ""];
-// header('Content-Type: application/json');
-// echo json_encode($todo);
+header('Content-Type: application/json');
+echo json_encode($todo);
 ?>
