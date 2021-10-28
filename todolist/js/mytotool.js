@@ -33,18 +33,18 @@ async function add_todo() {
     };
 
     await fetch("../php/db_add_todo.php", options)
-      .then((response) => {
-        response.json().then((data) => {
-          new_todo = `<div class="todo" id="todo_${data.id}">
-            <input type="checkbox" `;
-          data.checked ? (new_todo += `checked`) : (new_todo += ``);
-          new_todo += ` class="todo_check" id="check_todo_${data.id}" onclick="update_check()">
-        <p class="todo_text texting-1">${data.task}</p>
-        <i class="fas fa-times todo_delete" id="delete_todo_${data.id}" onclick="delete_todo()"></i>
-    </div>`;
-          todos.innerHTML += new_todo;
-        });
-      })
+    //   .then((response) => {
+    //     response.json().then((data) => {
+    //       new_todo = `<div class="todo" id="todo_${data.id}">
+    //         <input type="checkbox" `;
+    //       data.checked ? (new_todo += `checked`) : (new_todo += ``);
+    //       new_todo += ` class="todo_check" id="check_todo_${data.id}" onclick="update_check()">
+    //     <p class="todo_text texting-1">${data.task}</p>
+    //     <i class="fas fa-times todo_delete" id="delete_todo_${data.id}" onclick="delete_todo()"></i>
+    // </div>`;
+    //       todos.innerHTML += new_todo;
+    //     });
+    //   })
       .catch((error) => console.log("erreur fetch", error));
   }
 
