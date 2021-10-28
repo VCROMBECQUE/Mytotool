@@ -3,14 +3,7 @@ $title = "MYTOTOOL";
 $lang = "fr";
 $name = 'Valentin';
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database   = 'mytotool';
-$charset = 'utf8';
-
-$dsn = "mysql:host=$servername;dbname=$database;charset=$charset";
-$conn = new PDO($dsn, $username, $password);
+include_once "../php/db.php";
 
 $sql = "SELECT todo.id, todo.task, todo.checked FROM todo JOIN users ON users.id = todo.user_id WHERE users.user LIKE :name ORDER BY todo.id ASC";
 
