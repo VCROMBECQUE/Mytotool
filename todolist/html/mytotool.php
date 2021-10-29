@@ -11,6 +11,7 @@ $query = $conn->prepare($sql);
 $query->bindValue(":name", $name, PDO::PARAM_STR);
 $query->execute();
 
+
 $todos = $query->fetchALL(PDO::FETCH_ASSOC);
 ?>
 
@@ -30,8 +31,7 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
 
     <header>
         <h1><a class="heading-1" href="./index.html">MYTOTOOL</a></h1>
-        <p class="currentuser"><a class="texting-2" href="./connexion.html" id="user"><?= $name ?></a></p><a href="./connexion.html"><i
-                class="fas fa-user iconuser-1"></i></a>
+        <p class="currentuser"><a class="texting-2" href="./connexion.html" id="user"><?= $name ?></a></p><a href="./connexion.html"><i class="fas fa-user iconuser-1"></i></a>
     </header>
 
     <main>
@@ -41,10 +41,14 @@ $todos = $query->fetchALL(PDO::FETCH_ASSOC);
 
         <section id="todos" class="todos scroller">
             <?php foreach ($todos as $todo) { ?>
-                <div class="todo" id=<?="todo_".$todo["id"]?>>
-                    <input type="checkbox" <?= $todo["checked"] ? "checked" : "" ?> class="todo_check" id=<?="check_todo_".$todo["id"]?> onclick="update_check()">
+                <div class="todo" id=<?= "todo_" . $todo["id"] ?>>
+                    <input type="checkbox" <?= $todo["checked"] ? "checked" : "" ?> class="todo_check" id=<?= "check_todo_" . $todo["id"] ?> onclick="update_check()">
                     <p class="todo_text texting-1"><?= $todo["task"] ?></p>
-                    <i class="fas fa-times todo_delete" id=<?="delete_todo_".$todo["id"]?> onclick="delete_todo()"></i>
+                    <div class="todo_options">
+                        <i class="fas fa-times todo_options_delete" id=<?= "delete_todo_" . $todo["id"] ?> onclick="delete_todo()"></i>
+                        <i class="fas fa-edit todo_options_update" id=<?= "update_todo_" . $todo["id"] ?> onclick="update_todo()"></i>
+                    </div>
+
                 </div>
             <?php } ?>
         </section>

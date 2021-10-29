@@ -37,8 +37,9 @@ html {
     }
     main {
       .todos {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
+        .todo{
+          height: 20rem;
+        }
       }
       .addtask {
         &_input {
@@ -52,7 +53,7 @@ html {
 body {
   background-color: $color-primary;
   display: grid;
-  height: 100vh;
+  // height: 100vh;
   grid-template-columns:
     minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem))
     minmax(0, 1fr);

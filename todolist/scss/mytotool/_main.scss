@@ -18,15 +18,20 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    >h2{
+      padding: 1rem;
+    }
   }
 
   .todos {
-    width: 95%;
+    width: 90%;
     margin: 1rem;
     background-color: $color-white;
     border-radius: 2.5rem;
     padding: 1rem 0;
-    height: 60vh;
+    height: min-content;
+    max-height: 58vh;
     overflow-y: auto;
 
     .todo {
@@ -42,7 +47,7 @@ main {
       width: 90%;
       max-height: 10rem;
       padding: 1.5rem;
-      margin: 1rem auto;
+      margin: 3rem auto;
 
       &_check {
         cursor: pointer;
@@ -70,10 +75,29 @@ main {
         padding: 0 2rem;
       }
 
-      &_delete {
-        font-size: 2rem;
-        cursor: pointer;
+      &_options{
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: center;
+        &_delete {
+          font-size: 2.5rem;
+          cursor: pointer;
+          color: red;
+        }
+        &_update{
+          font-size: 2.5rem;
+          cursor: pointer;
+          color: rgb(86, 137, 212);
+        }
       }
+
+      &_default{
+        padding: 2rem;
+        text-align: center;
+      }
+
     }
   }
 
@@ -85,7 +109,7 @@ main {
     justify-content: space-around;
     align-items: center;
 
-    width: 100%;
+    width: 90%;
     height: min-content;
 
     margin-top: 1rem;
