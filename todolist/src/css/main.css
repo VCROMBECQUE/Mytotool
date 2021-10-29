@@ -56,6 +56,9 @@ html {
   html {
     font-size: 45%;
   }
+  html main .todos .todo_options_update {
+    margin-right: 1rem;
+  }
   html main .addtask {
     flex-direction: column;
     padding: 2rem;

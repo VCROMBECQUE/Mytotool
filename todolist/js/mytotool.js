@@ -92,7 +92,7 @@ function update_todos() {
             ` class="todo_check" id="check_todo_` +
             current_task.id +
             `" onclick="update_check()">
-              <p class="todo_text texting-1">` +
+              <p  class="todo_text texting-1">` +
             current_task.task +
             `</p>
               <div class="todo_options">

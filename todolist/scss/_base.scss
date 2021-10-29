@@ -17,6 +17,16 @@ html {
   @media screen and (max-width: $bp-small) {
     font-size: 45%;
     main {
+      .todos{
+        .todo{
+          &_options{
+            &_update{
+              margin-right: 1rem;
+            }
+          }
+        }
+       
+      }
       .addtask {
         flex-direction: column;
         padding: 2rem;
