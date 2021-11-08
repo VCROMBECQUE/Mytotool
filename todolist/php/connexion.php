@@ -1,5 +1,5 @@
 <?php
-include_once "./db.php";
+include_once "./config_db.php";
 
 $conn->beginTransaction();
 
@@ -15,5 +15,5 @@ else{
 }
 
 $user_info = $query->fetchALL(PDO::FETCH_ASSOC);
-var_dump($user_info);
 
+header('Location: ../html/mytotool.php');

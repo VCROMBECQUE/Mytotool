@@ -3,7 +3,7 @@ $title = "MYTOTOOL";
 $lang = "fr";
 $name = 'Valentin';
 
-include_once "../php/db.php";
+include_once "../php/config_db.php";
 
 $sql = "SELECT todo.id, todo.task, todo.checked FROM todo JOIN users ON users.id = todo.user_id WHERE users.user LIKE :name ORDER BY todo.id ASC";
 

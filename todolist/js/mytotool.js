@@ -7,7 +7,7 @@ async function delete_todo() {
   let elem_id = window.event.target.id;
   let elem = elem_id.split("_");
   let todo_del = document.getElementById("todo_" + elem[2]);
-  todos.removeChild(todo_del);
+  // todos.removeChild(todo_del);
 
   const options = {
     method: "POST",
@@ -71,10 +71,12 @@ async function update_check() {
 
 function update_todos() {
   let user = document.getElementById("user").innerHTML;
+
   const options = {
     method: "POST",
     body: JSON.stringify(user),
   };
+
   todos.innerHTML = "";
   fetch("../php/db_update_todos.php", options)
     .then((response) => {
