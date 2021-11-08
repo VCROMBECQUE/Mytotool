@@ -3,7 +3,8 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 article,
@@ -49,7 +50,8 @@ table {
 
 html {
   font-size: 50%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media screen and (max-width: 37.5em) {
@@ -57,7 +59,10 @@ html {
     font-size: 45%;
   }
   html main .addtask {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 2rem;
   }
   html main .addtask_input {
@@ -71,11 +76,15 @@ html {
     font-size: 62.5%;
   }
   html body {
-    grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
+    -ms-grid-columns: minmax(2rem, 1fr) (minmax(min-content, 9rem))[12] minmax(2rem, 1fr);
+        grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(-webkit-min-content, 9rem)) minmax(2rem, 1fr);
+        grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
   }
   html main .todos {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
   }
   html main .addtask_input {
     margin-right: 4rem;
@@ -83,11 +92,16 @@ html {
 }
 
 body {
-  background-color: #fbed96;
+  background-color: lightgray;
+  display: -ms-grid;
   display: grid;
   height: 100vh;
-  grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
-  grid-template-rows: minmax(min-content, 10rem) 1fr;
+  -ms-grid-columns: minmax(0, 1fr) (minmax(min-content, 6.5rem))[12] minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) repeat(12, minmax(-webkit-min-content, 6.5rem)) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
+  -ms-grid-rows: minmax(min-content, 10rem) 1fr;
+      grid-template-rows: minmax(-webkit-min-content, 10rem) 1fr;
+      grid-template-rows: minmax(min-content, 10rem) 1fr;
 }
 
 .heading-1, .heading-2, .heading-3 {
@@ -160,9 +174,14 @@ header {
   grid-column: 1/-1;
   max-height: 10rem;
   background-color: black;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: [grid-start] minmax(2rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 6.5rem) [col-end]) [center-end] minmax(2rem, 1fr) [grid-end];
-  align-items: center;
+  -ms-grid-columns: [grid-start] minmax(2rem, 1fr) [center-start] ([col-start] minmax(min-content, 6.5rem) [col-end])[12] [center-end] minmax(2rem, 1fr) [grid-end];
+      grid-template-columns: [grid-start] minmax(2rem, 1fr) [center-start] repeat(12, [col-start] minmax(-webkit-min-content, 6.5rem) [col-end]) [center-end] minmax(2rem, 1fr) [grid-end];
+      grid-template-columns: [grid-start] minmax(2rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 6.5rem) [col-end]) [center-end] minmax(2rem, 1fr) [grid-end];
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header h1 {
@@ -180,9 +199,77 @@ header i {
   padding: 2rem;
 }
 
+.accueil {
+  background-color: white;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  margin: 4rem 2rem;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+.accueil h2 {
+  padding: 4rem;
+  text-align: center;
+}
+
+.accueil p {
+  padding: 2rem;
+}
+
+.connexion {
+  background-color: white;
+  border-radius: 2.5rem;
+  padding: 4rem 2rem;
+  margin: 4rem 2rem;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+.connexion_form {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+}
+
+.connexion_form_mail {
+  border-radius: 2.5rem;
+  width: 80%;
+  max-width: 30rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
+
+.connexion_form_mdp {
+  border-radius: 2.5rem;
+  width: 80%;
+  max-width: 30rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
+
+.connexion_form_forgot {
+  width: 80%;
+  max-width: 30rem;
+  text-align: right;
+  margin-bottom: 4rem;
+}
+
+.connexion_form_loginbtn {
+  max-width: 16rem;
+  padding: 1rem 4rem;
+  background-color: black;
+  border-radius: 2.5rem;
+  cursor: pointer;
+}
+
 main {
   max-width: 100%;
   grid-column: 2/-2;
+  display: -ms-grid;
   display: grid;
   justify-items: center;
   padding: 2rem;
@@ -195,9 +282,15 @@ main .welcome {
   max-height: 20rem;
   margin: 2rem;
   padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 
@@ -215,9 +308,13 @@ main .todos .todo {
   background-color: #f7f7f7;
   border: 0.1rem solid #616161;
   border-radius: 2.5rem;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
-  align-items: center;
+  -ms-grid-columns: 1fr 8fr 1fr;
+      grid-template-columns: 1fr 8fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   justify-items: center;
   width: 90%;
   max-height: 20rem;
@@ -261,9 +358,14 @@ main .todos .todo_delete {
 main .addtask {
   background-color: white;
   border-radius: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   margin-top: 1rem;
   padding: 1rem 4rem;
@@ -283,66 +385,4 @@ main .addtask_btn {
   background-color: black;
   border-radius: 2.5rem;
   cursor: pointer;
-}
-
-.connexion {
-  background-color: white;
-  border-radius: 2.5rem;
-  padding: 4rem 2rem;
-  margin: 4rem 2rem;
-  height: min-content;
-}
-
-.connexion_form {
-  width: 100%;
-  display: grid;
-  justify-items: center;
-}
-
-.connexion_form_mail {
-  border-radius: 2.5rem;
-  width: 80%;
-  max-width: 30rem;
-  padding: 1rem 1.5rem;
-  margin: 1rem;
-}
-
-.connexion_form_mdp {
-  border-radius: 2.5rem;
-  width: 80%;
-  max-width: 30rem;
-  padding: 1rem 1.5rem;
-  margin: 1rem;
-}
-
-.connexion_form_forgot {
-  width: 80%;
-  max-width: 30rem;
-  text-align: right;
-  margin-bottom: 4rem;
-}
-
-.connexion_form_loginbtn {
-  max-width: 16rem;
-  padding: 1rem 4rem;
-  background-color: black;
-  border-radius: 2.5rem;
-  cursor: pointer;
-}
-
-.accueil {
-  background-color: white;
-  border-radius: 2.5rem;
-  padding: 2rem;
-  margin: 4rem 2rem;
-  height: min-content;
-}
-
-.accueil h2 {
-  padding: 4rem;
-  text-align: center;
-}
-
-.accueil p {
-  padding: 2rem;
 }
