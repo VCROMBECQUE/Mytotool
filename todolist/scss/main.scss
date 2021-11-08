@@ -3,8 +3,8 @@
 @import "./typography";
 @import "./ui";
 
-@import "./mytotool/header";
-@import "./mytotool/main";
+@import "./commun/header";
 
-@import "./connexion/connexion";
 @import "./index/accueil";
+@import "./connexion/connexion";
+@import "./mytotool/mytotool";
