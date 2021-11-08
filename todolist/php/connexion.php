@@ -1,6 +1,4 @@
 <?php
-var_dump($_POST);
-
 include_once "./db.php";
 
 $conn->beginTransaction();

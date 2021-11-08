@@ -81,33 +81,17 @@ function update_todos() {
       response.json().then((data) => {
         let new_todos = "";
         data.forEach((current_task) => {
-          new_todos +=
-            `<div class="todo" draggable="true" id="todo_` +
-            current_task.id +
-            `"><input type="checkbox" `;
-          current_task.checked == 1
-            ? (new_todos += `checked`)
-            : (new_todos += ``);
-          new_todos +=
-            ` class="todo_check" id="check_todo_` +
-            current_task.id +
-            `" onclick="update_check()">
-              <p  class="todo_text texting-1">` +
-            current_task.task +
-            `</p>
-              <div class="todo_options">
-              <i class="fas fa-times todo_options_delete" id="delete_todo_` +
-            current_task.id +
-            `" onclick="delete_todo()"></i>
-              <i class="fas fa-edit todo_options_update" id="update_todo_` +
-            current_task.id +
-            `" onclick="update_todo()"></i>
-              </div>
+          new_todos += `<div class="todo" draggable="true" id="todo_` + current_task.id + `"><input type="checkbox" `;
+          current_task.checked == 1 ? (new_todos += `checked`) : (new_todos += ``);
+          new_todos += ` class="todo_check" id="check_todo_` + current_task.id + `" onclick="update_check()">
+          <p class="todo_text texting-1">` + current_task.task + `</p>
+          <div class="todo_options">
+          <i class="fas fa-times todo_options_delete" id="delete_todo_` + current_task.id + `" onclick="delete_todo()"></i>
+          <i class="fas fa-edit todo_options_update" id="update_todo_` + current_task.id + `" onclick="update_todo()"></i>
+          </div>
           </div>`;
         });
-
         new_todos ? todos.innerHTML = new_todos : todos.innerHTML = "<p class=\"todo_default texting-1\">Vous n'avez aucune tâche à faire !</p>"
-
       });
     })
     .catch((error) => console.log("erreur fetch", error));
