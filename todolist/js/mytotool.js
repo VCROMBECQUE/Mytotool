@@ -3,6 +3,35 @@ var add_new_todo = document.getElementById("add_new_todo");
 
 document.addEventListener('load', todos_init());
 
+function todos_init() {
+  let user = document.getElementById("user").innerHTML;
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(user),
+  };
+  
+  fetch("../php/db_todos_init.php", options)
+    .then((response) => {
+      response.json().then((data) => {
+        let check_todos = "";
+        data.forEach((current_task) => {
+          check_todos += `<div class="todo" draggable="true" id="todo_` + current_task.id + `"><input type="checkbox" `;
+          current_task.checked == 1 ? (check_todos += `checked`) : (check_todos += ``);
+          check_todos += ` class="todo_check" id="check_todo_` + current_task.id + `" onclick="update_check()">
+          <input type="text" class="todo_text texting-1" value="` + current_task.task + `" readonly="readonly">
+          <div class="todo_options">
+          <i class="fas fa-times todo_options_delete" id="delete_todo_` + current_task.id + `" onclick="delete_todo()"></i>
+          <i class="fas fa-edit todo_options_update" id="update_todo_` + current_task.id + `" onclick="update_todo()"></i>
+          </div>
+          </div>`;
+        });
+        check_todos ? todos.innerHTML = check_todos : todos.innerHTML = "<p class=\"todo_default texting-1\">Vous n'avez aucune tâche à faire !</p>"
+      });
+    })
+    .catch((error) => console.log("erreur fetch", error));
+}
+
 async function delete_todo() {
   let elem_id = window.event.target.id;
   let elem = elem_id.split("_");
@@ -69,31 +98,3 @@ async function update_check() {
   todos_init();
 }
 
-function todos_init() {
-  let user = document.getElementById("user").innerHTML;
-
-  const options = {
-    method: "POST",
-    body: JSON.stringify(user),
-  };
-  
-  fetch("../php/db_update_todos.php", options)
-    .then((response) => {
-      response.json().then((data) => {
-        let check_todos = "";
-        data.forEach((current_task) => {
-          check_todos += `<div class="todo" draggable="true" id="todo_` + current_task.id + `"><input type="checkbox" `;
-          current_task.checked == 1 ? (check_todos += `checked`) : (check_todos += ``);
-          check_todos += ` class="todo_check" id="check_todo_` + current_task.id + `" onclick="update_check()">
-          <input type="text" class="todo_text texting-1" value="` + current_task.task + `" readonly="readonly">
-          <div class="todo_options">
-          <i class="fas fa-times todo_options_delete" id="delete_todo_` + current_task.id + `" onclick="delete_todo()"></i>
-          <i class="fas fa-edit todo_options_update" id="update_todo_` + current_task.id + `" onclick="update_todo()"></i>
-          </div>
-          </div>`;
-        });
-        check_todos ? todos.innerHTML = check_todos : todos.innerHTML = "<p class=\"todo_default texting-1\">Vous n'avez aucune tâche à faire !</p>"
-      });
-    })
-    .catch((error) => console.log("erreur fetch", error));
-}

@@ -311,7 +311,16 @@ main .todos .todo_options_update {
 
 main .todos .todo_default {
   padding: 2rem;
-  text-align: center;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .addtask {
