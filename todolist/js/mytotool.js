@@ -1,7 +1,7 @@
 var todos = document.getElementById("todos");
 var add_new_todo = document.getElementById("add_new_todo");
 
-document.addEventListener('load', update_todos());
+document.addEventListener('load', todos_init());
 
 async function delete_todo() {
   let elem_id = window.event.target.id;
@@ -18,7 +18,7 @@ async function delete_todo() {
     console.log("erreur fetch", error)
   );
 
-  update_todos();
+  todos_init();
 }
 
 async function add_todo() {
@@ -50,7 +50,7 @@ async function add_todo() {
       .catch((error) => console.log("erreur fetch", error));
   }
 
-  update_todos();
+  todos_init();
 }
 
 async function update_check() {
@@ -66,34 +66,33 @@ async function update_check() {
     console.log("erreur fetch", error)
   );
 
-  update_todos();
+  todos_init();
 }
 
-function update_todos() {
+function todos_init() {
   let user = document.getElementById("user").innerHTML;
 
   const options = {
     method: "POST",
     body: JSON.stringify(user),
   };
-
-  todos.innerHTML = "";
+  
   fetch("../php/db_update_todos.php", options)
     .then((response) => {
       response.json().then((data) => {
-        let new_todos = "";
+        let check_todos = "";
         data.forEach((current_task) => {
-          new_todos += `<div class="todo" draggable="true" id="todo_` + current_task.id + `"><input type="checkbox" `;
-          current_task.checked == 1 ? (new_todos += `checked`) : (new_todos += ``);
-          new_todos += ` class="todo_check" id="check_todo_` + current_task.id + `" onclick="update_check()">
-          <p class="todo_text texting-1">` + current_task.task + `</p>
+          check_todos += `<div class="todo" draggable="true" id="todo_` + current_task.id + `"><input type="checkbox" `;
+          current_task.checked == 1 ? (check_todos += `checked`) : (check_todos += ``);
+          check_todos += ` class="todo_check" id="check_todo_` + current_task.id + `" onclick="update_check()">
+          <input type="text" class="todo_text texting-1" value="` + current_task.task + `" readonly="readonly">
           <div class="todo_options">
           <i class="fas fa-times todo_options_delete" id="delete_todo_` + current_task.id + `" onclick="delete_todo()"></i>
           <i class="fas fa-edit todo_options_update" id="update_todo_` + current_task.id + `" onclick="update_todo()"></i>
           </div>
           </div>`;
         });
-        new_todos ? todos.innerHTML = new_todos : todos.innerHTML = "<p class=\"todo_default texting-1\">Vous n'avez aucune tâche à faire !</p>"
+        check_todos ? todos.innerHTML = check_todos : todos.innerHTML = "<p class=\"todo_default texting-1\">Vous n'avez aucune tâche à faire !</p>"
       });
     })
     .catch((error) => console.log("erreur fetch", error));
