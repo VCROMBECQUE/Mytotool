@@ -73,7 +73,7 @@ html {
   html {
     font-size: 60%;
   }
-  html body {
+  html body, html header {
     -ms-grid-columns: minmax(2rem, 1fr) (minmax(min-content, 9rem))[12] minmax(2rem, 1fr);
         grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(-webkit-min-content, 9rem)) minmax(2rem, 1fr);
         grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
@@ -164,21 +164,23 @@ header {
   background-color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: [grid-start] minmax(2rem, 1fr) [center-start] ([col-start] minmax(min-content, 6.5rem) [col-end])[12] [center-end] minmax(2rem, 1fr) [grid-end];
-      grid-template-columns: [grid-start] minmax(2rem, 1fr) [center-start] repeat(12, [col-start] minmax(-webkit-min-content, 6.5rem) [col-end]) [center-end] minmax(2rem, 1fr) [grid-end];
-      grid-template-columns: [grid-start] minmax(2rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 6.5rem) [col-end]) [center-end] minmax(2rem, 1fr) [grid-end];
+  -ms-grid-columns: minmax(2rem, 1fr) (minmax(min-content, 6.5rem))[12] minmax(2rem, 1fr);
+      grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(-webkit-min-content, 6.5rem)) minmax(2rem, 1fr);
+      grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(2rem, 1fr);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 header h1 {
-  grid-column: center-start / span 9;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-column: 2 / span 5;
   padding: 2rem;
 }
 
 header .currentuser {
-  grid-column: span 2 / col-end 11;
+  grid-column: span 2 / -3;
   text-align: end;
 }
 
@@ -376,6 +378,7 @@ main .addtask_btn {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  grid-column: 5/-5;
 }
 
 .connexion_form {
@@ -428,7 +431,7 @@ main .addtask_btn {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  grid-column: 5/-5 !important;
+  grid-column: 5/-5;
 }
 
 .inscription_form {
@@ -465,4 +468,5 @@ main .addtask_btn {
 
 .inscription_subscribe {
   padding-top: 2rem;
+  text-decoration: underline;
 }

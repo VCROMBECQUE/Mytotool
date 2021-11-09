@@ -4,7 +4,7 @@
     padding: 4rem 2rem;
     margin: 4rem 2rem;
     height:min-content;
-    grid-column: 5/-5 !important;
+    grid-column: 5/-5;
 
     &_form {
       width: 100%;
@@ -17,8 +17,8 @@
         max-width: 30rem;
         padding: 1rem 1.5rem;
         margin: 1rem;
-  
       }
+
       &_mdp {
         border-radius: 2.5rem;
         width: 80%;
@@ -34,11 +34,11 @@
         background-color: $color-black;
         border-radius: 2.5rem;
         cursor: pointer;
-  
       }
     }
     &_subscribe{
       padding-top: 2rem;
+      text-decoration: underline;
     }
   }
   

@@ -37,10 +37,8 @@ html {
 
   @media only screen and (min-width: $bp-largest) {
     font-size: 60%;
-    body {
-      grid-template-columns:
-        minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem))
-        minmax(2rem, 1fr);
+    body, header {
+      grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
     }
     main {
       .addtask {
@@ -55,8 +53,6 @@ html {
 body {
   background-color: $color-primary;
   display: grid;
-  grid-template-columns:
-    minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem))
-    minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
 }
 
