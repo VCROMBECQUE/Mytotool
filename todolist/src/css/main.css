@@ -61,8 +61,11 @@ html {
   html main .todos .todo_options_update {
     margin-right: 1rem;
   }
+  html main .addtask {
+    padding: 2rem;
+  }
   html main .addtask_input {
-    width: 85%;
+    width: 80%;
   }
 }
 
@@ -198,9 +201,9 @@ main {
 main .welcome {
   background-color: white;
   border-radius: 2.5rem;
-  width: 60%;
+  width: 80%;
   height: 10rem;
-  margin: 2rem 2rem 1rem 2rem;
+  margin: 1rem 1rem 0.5rem 1rem;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -219,11 +222,10 @@ main .welcome > h2 {
 }
 
 main .todos {
-  width: 90%;
+  width: 95%;
   margin: 2rem;
   background-color: white;
   border-radius: 2.5rem;
-  padding: 1rem 0;
   max-height: 50vh;
   overflow-y: auto;
 }
@@ -323,12 +325,12 @@ main .addtask {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 90%;
+  width: 95%;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin-top: 1rem;
-  padding: 3rem 4rem;
+  padding: 2rem 4rem;
 }
 
 main .addtask_input {
@@ -342,10 +344,11 @@ main .addtask_input {
 main .addtask_btn {
   width: 5rem;
   height: 5rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   background-color: black;
   border-radius: 2.5rem;
   cursor: pointer;
+  border: none;
 }
 
 .accueil {
