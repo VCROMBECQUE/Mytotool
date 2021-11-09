@@ -121,17 +121,17 @@ body {
 }
 
 .texting-1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2rem;
 }
 
 .texting-2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: white;
 }
 
 .texting-3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: black;
 }
 
@@ -365,7 +365,7 @@ main .addtask_btn {
 }
 
 .accueil p {
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .connexion {
@@ -428,6 +428,7 @@ main .addtask_btn {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  grid-column: 5/-5 !important;
 }
 
 .inscription_form {

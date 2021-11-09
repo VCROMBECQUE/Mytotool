@@ -4,7 +4,8 @@
     padding: 4rem 2rem;
     margin: 4rem 2rem;
     height:min-content;
-  
+    grid-column: 5/-5 !important;
+
     &_form {
       width: 100%;
       display: grid;

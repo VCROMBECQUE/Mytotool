@@ -31,19 +31,19 @@
 
 .texting-1{
   @extend %texting;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2rem;
 }
 
 .texting-2{
   @extend %texting;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: $color-white;
 }
 
 .texting-3{
   @extend %texting;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: $color-black;
 }
 
