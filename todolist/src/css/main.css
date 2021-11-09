@@ -78,9 +78,6 @@ html {
         grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(-webkit-min-content, 9rem)) minmax(2rem, 1fr);
         grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
   }
-  html main .todos .todo {
-    height: 20rem;
-  }
   html main .addtask_input {
     margin-right: 4rem;
   }
@@ -226,7 +223,8 @@ main .todos {
   margin: 2rem;
   background-color: white;
   border-radius: 2.5rem;
-  max-height: 50vh;
+  min-height: 16rem;
+  height: calc(100vh - 40rem);
   overflow-y: auto;
 }
 
@@ -243,7 +241,7 @@ main .todos .todo {
           align-items: center;
   justify-items: center;
   width: 90%;
-  max-height: 10rem;
+  min-height: 10rem;
   padding: 1.5rem;
   margin: 3rem auto;
 }

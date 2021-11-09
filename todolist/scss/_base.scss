@@ -43,11 +43,6 @@ html {
         minmax(2rem, 1fr);
     }
     main {
-      .todos {
-        .todo{
-          height: 20rem;
-        }
-      }
       .addtask {
         &_input {
           margin-right: 4rem;
