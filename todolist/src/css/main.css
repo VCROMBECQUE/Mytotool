@@ -3,8 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 article,
@@ -50,8 +49,7 @@ table {
 
 html {
   font-size: 55%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 37.5em) {
@@ -74,9 +72,7 @@ html {
     font-size: 60%;
   }
   html body, html header {
-    -ms-grid-columns: minmax(2rem, 1fr) (minmax(min-content, 9rem))[12] minmax(2rem, 1fr);
-        grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(-webkit-min-content, 9rem)) minmax(2rem, 1fr);
-        grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
+    grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 9rem)) minmax(2rem, 1fr);
   }
   html main .addtask_input {
     margin-right: 4rem;
@@ -85,11 +81,8 @@ html {
 
 body {
   background-color: gainsboro;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: minmax(0, 1fr) (minmax(min-content, 6.5rem))[12] minmax(0, 1fr);
-      grid-template-columns: minmax(0, 1fr) repeat(12, minmax(-webkit-min-content, 6.5rem)) minmax(0, 1fr);
-      grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(0, 1fr);
 }
 
 .heading-1, .heading-2, .heading-3 {
@@ -162,19 +155,12 @@ header {
   grid-column: 1/-1;
   max-height: 10rem;
   background-color: black;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: minmax(2rem, 1fr) (minmax(min-content, 6.5rem))[12] minmax(2rem, 1fr);
-      grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(-webkit-min-content, 6.5rem)) minmax(2rem, 1fr);
-      grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(2rem, 1fr);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  grid-template-columns: minmax(2rem, 1fr) repeat(12, minmax(min-content, 6.5rem)) minmax(2rem, 1fr);
+  align-items: center;
 }
 
 header h1 {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 5;
   grid-column: 2 / span 5;
   padding: 2rem;
 }
@@ -191,7 +177,6 @@ header i {
 
 main {
   grid-column: 2/-2;
-  display: -ms-grid;
   display: grid;
   justify-items: center;
   padding: 2rem;
@@ -204,15 +189,9 @@ main .welcome {
   height: 10rem;
   margin: 1rem 1rem 0.5rem 1rem;
   padding: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -234,13 +213,9 @@ main .todos .todo {
   background-color: #f7f7f7;
   border: 0.1rem solid #616161;
   border-radius: 2.5rem;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 8fr 1fr;
-      grid-template-columns: 1fr 8fr 1fr;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  grid-template-columns: 1fr 8fr 1fr;
+  align-items: center;
   justify-items: center;
   width: 90%;
   min-height: 10rem;
@@ -283,18 +258,10 @@ main .todos .todo_text {
 
 main .todos .todo_options {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
 }
 
 main .todos .todo_options_delete {
@@ -312,31 +279,18 @@ main .todos .todo_options_update {
 main .todos .todo_default {
   padding: 2rem;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 main .addtask {
   background-color: white;
   border-radius: 2.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
   width: 95%;
-  height: -webkit-min-content;
-  height: -moz-min-content;
   height: min-content;
   margin-top: 1rem;
   padding: 2rem 4rem;
@@ -365,8 +319,6 @@ main .addtask_btn {
   border-radius: 2.5rem;
   padding: 2rem;
   margin: 4rem 2rem;
-  height: -webkit-min-content;
-  height: -moz-min-content;
   height: min-content;
 }
 
@@ -384,15 +336,12 @@ main .addtask_btn {
   border-radius: 2.5rem;
   padding: 4rem 2rem;
   margin: 4rem 2rem;
-  height: -webkit-min-content;
-  height: -moz-min-content;
   height: min-content;
   grid-column: 5/-5;
 }
 
 .connexion_form {
   width: 100%;
-  display: -ms-grid;
   display: grid;
   justify-items: center;
 }
@@ -437,15 +386,12 @@ main .addtask_btn {
   border-radius: 2.5rem;
   padding: 4rem 2rem;
   margin: 4rem 2rem;
-  height: -webkit-min-content;
-  height: -moz-min-content;
   height: min-content;
   grid-column: 5/-5;
 }
 
 .inscription_form {
   width: 100%;
-  display: -ms-grid;
   display: grid;
   justify-items: center;
 }
