@@ -18,7 +18,7 @@ main {
     justify-content: center;
     text-align: center;
 
-    >h2{
+    > h2 {
       padding: 1rem;
     }
   }
@@ -31,7 +31,6 @@ main {
     min-height: 16rem;
     height: calc(100vh - 40rem);
     overflow-y: auto;
-    
 
     .todo {
       background-color: #f7f7f7;
@@ -71,15 +70,14 @@ main {
       }
 
       &_text {
-        padding: 0 2rem;
-        border: none;
+        padding: 1.5rem;
+        border: 0.1rem solid #f7f7f7;
         background-color: transparent;
-        outline: none;
-        width: 100%;
-        text-align: center;
+        width: 90%;
+        word-break: break-word;
       }
 
-      &_options{
+      &_options {
         width: 100%;
         display: flex;
         flex-direction: row-reverse;
@@ -90,14 +88,16 @@ main {
           cursor: pointer;
           color: red;
         }
-        &_update{
+        &_update {
+
+          height: 100%;
           font-size: 2.5rem;
           cursor: pointer;
           color: rgb(86, 137, 212);
         }
       }
 
-      &_default{
+      &_default {
         padding: 2rem;
         height: 100%;
         display: flex;
@@ -120,7 +120,6 @@ main {
 
     margin-top: 1rem;
     padding: 2rem 4rem;
-    
 
     &_input {
       width: 90%;

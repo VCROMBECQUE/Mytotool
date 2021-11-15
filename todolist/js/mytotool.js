@@ -1,5 +1,6 @@
 var todos = document.getElementById("todos");
 var add_new_todo = document.getElementById("add_new_todo");
+
 document.addEventListener("load", todos_init());
 
 async function todos_init() {
@@ -15,29 +16,28 @@ async function todos_init() {
       response.json().then((data) => {
         let update_todos = "";
         data.forEach((current_task) => {
-          update_todos +=
-            `<div class="todo" draggable="true" id="todo_` +
-            current_task.id +
-            `"><input type="checkbox" `;
-          current_task.checked == 1
-            ? (update_todos += `checked`)
-            : (update_todos += ``);
-          update_todos +=
-            ` class="todo_check" id="check_todo_` +
-            current_task.id +
-            `" onclick="update_check()">
-          <input type="text" class="todo_text texting-1" value="` +
-            current_task.task +
-            `" readonly="readonly">
-          <div class="todo_options">
-          <i class="fas fa-times todo_options_delete" id="delete_todo_` +
-            current_task.id +
-            `" onclick="delete_todo()"></i>
-          <i class="fas fa-edit todo_options_update" id="update_todo_` +
-            current_task.id +
-            `" onclick="update_todo()"></i>
-          </div>
-          </div>`;
+          update_todos += ` <div class="todo" id="todo_${current_task.id}">
+                            <input type="checkbox" ${
+                              current_task.checked == 1 ? `checked` : ``
+                            } class="todo_check" id="check_todo_${
+            current_task.id
+          }" onclick="update_check()">
+                            <div class="todo_text texting-1" id="text_todo_${
+                              current_task.id
+                            }">
+                              ${current_task.task}
+                            </div>
+                              <div class="todo_options">
+                                <i class="fas fa-times todo_options_delete" id="delete_todo_${
+                                  current_task.id
+                                }" onclick="delete_todo()"></i>
+                                <div class="todo_options_update">
+                                  <i class="fas fa-edit" id="change_todo_${
+                                    current_task.id
+                                  }" onclick="change_todo()"></i>
+                                </div>
+                              </div>
+                            </div>`;
         });
         update_todos
           ? (todos.innerHTML = update_todos)
@@ -49,13 +49,12 @@ async function todos_init() {
 }
 
 async function delete_todo() {
-  let elem_id = window.event.target.id;
-  let elem = elem_id.split("_");
-  let todo_del = document.getElementById("todo_" + elem[2]);
+  let elem = window.event.target.id.split("_")[2];
+  let todo_del = document.getElementById("todo_" + elem);
 
   const options = {
     method: "POST",
-    body: elem[2],
+    body: elem,
   };
 
   await fetch("../php/db_delete_todo.php", options)
@@ -90,12 +89,14 @@ async function add_todo() {
         response.json().then((data) => {
           let numberoftask = todos.getElementsByClassName("todo");
 
-          let new_todo = `<div class="todo" draggable="true" id="todo_${data.id}">
+          let new_todo = `<div class="todo" id="todo_${data.id}">
                             <input type="checkbox" class="todo_check" id="check_todo_${data.id}" onclick="update_check()">
-                            <input type="text" class="todo_text texting-1" value="${data.task}" readonly="readonly">
+                            <div type="text" class="todo_text texting-1" id="text_todo_${data.id}">${data.task}</div>
                             <div class="todo_options">
                               <i class="fas fa-times todo_options_delete" id="delete_todo_${data.id}" onclick="delete_todo()"></i>
-                              <i class="fas fa-edit todo_options_update" id="update_todo_${data.id}" onclick="update_todo()"></i>
+                              <div class="todo_options_update">
+                                <i class="fas fa-edit todo_options_update" id="change_todo_${data.id}" onclick="change_todo()"></i>
+                              </div>
                             </div>
                           </div>`;
 
@@ -109,12 +110,11 @@ async function add_todo() {
 }
 
 async function update_check() {
-  let elem_id = window.event.target.id;
-  let elem = elem_id.split("_");
+  let elem = window.event.target.id.split("_")[2];
 
   const options = {
     method: "POST",
-    body: elem[2],
+    body: elem,
   };
 
   await fetch("../php/db_update_check.php", options).catch((error) =>
@@ -122,7 +122,10 @@ async function update_check() {
   );
 }
 
-// TODO
-async function update_todo() {
-  onkeydown;
+function change_todo() {
+  let elem = window.event.target.id.split("_")[2];
+  let todo_change = document.getElementById("text_todo_" + elem);
+
+  todo_change.setAttribute("contentEditable", true);
+  todo_change.classList.add("edit_text");
 }

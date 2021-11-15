@@ -137,6 +137,12 @@ body {
   display: none !important;
 }
 
+.edit_text {
+  border: black 0.1rem solid !important;
+  background-color: white !important;
+  border-radius: 2.5rem;
+}
+
 ::-webkit-scrollbar {
   width: 0.8rem;
   background-color: gainsboro;
@@ -248,12 +254,11 @@ main .todos .todo_check:checked:after {
 }
 
 main .todos .todo_text {
-  padding: 0 2rem;
-  border: none;
+  padding: 1.5rem;
+  border: 0.1rem solid #f7f7f7;
   background-color: transparent;
-  outline: none;
-  width: 100%;
-  text-align: center;
+  width: 90%;
+  word-break: break-word;
 }
 
 main .todos .todo_options {
@@ -271,6 +276,7 @@ main .todos .todo_options_delete {
 }
 
 main .todos .todo_options_update {
+  height: 100%;
   font-size: 2.5rem;
   cursor: pointer;
   color: #5689d4;
