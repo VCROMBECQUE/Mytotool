@@ -31,7 +31,6 @@ $name = 'Valentin';
 
         <div class="addtask">
             <input class="addtask_input" type="text" placeholder="Nouvelle tâche" id="tache">
-            
             <button class="addtask_btn texting-2" type="button" id="add_new_todo" onclick="add_todo()"><i class="fas fa-angle-right "></i></button>
         </div>
     </main>
